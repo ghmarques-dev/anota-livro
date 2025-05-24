@@ -8,6 +8,8 @@ export abstract class UsersRepository {
   abstract find_by_email(
     input: UsersRepository.FindByEmail.Input,
   ): UsersRepository.FindByEmail.Output;
+
+  abstract update(input: UsersRepository.Update.Input): UsersRepository.Update.Output
 }
 
 export namespace UsersRepository {
@@ -24,6 +26,19 @@ export namespace UsersRepository {
   export namespace FindByEmail {
     export type Input = {
       email: string;
+    };
+
+    export type Output = Promise<User | null>;
+  }
+
+  export namespace Update {
+    export type Input = {
+      user_id: string;
+      data: Partial<{
+        email: string;
+        password: string;
+        refresh_token: string;
+      }>
     };
 
     export type Output = Promise<User | null>;

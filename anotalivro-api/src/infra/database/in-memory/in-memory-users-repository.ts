@@ -33,4 +33,24 @@ export class InMemoryUsersRepository implements UsersRepository {
 
     return user;
   }
+
+  async update(
+    input: UsersRepository.Update.Input,
+  ): UsersRepository.Update.Output {
+    const index = this.database.findIndex(
+      (item) => item.user_id == input.user_id,
+    );
+
+    const user = this.database[index];
+
+    if (!user) {
+      return null
+    }
+    
+    const assignUser = Object.assign(user, input.data);
+
+    this.database[index] = assignUser;
+
+    return assignUser;
+  }
 }
