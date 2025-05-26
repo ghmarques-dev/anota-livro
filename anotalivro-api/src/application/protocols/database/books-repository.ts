@@ -53,7 +53,7 @@ export namespace BooksRepository {
       }>;
     };
 
-    export type Output = Promise<Book | null>;
+    export type Output = Promise<Book>;
   }
 
   export namespace Delete {
