@@ -34,6 +34,18 @@ export class InMemoryUsersRepository implements UsersRepository {
     return user;
   }
 
+  async find_by_refresh_token(
+    input: UsersRepository.FindByRefreshToken.Input
+  ): UsersRepository.FindByRefreshToken.Output {
+    const userByRefreshToken = this.database.find(item => item.refresh_token === input.refresh_token)
+
+    if(!userByRefreshToken) {
+      return null
+    }
+
+    return userByRefreshToken
+  }
+
   async update(
     input: UsersRepository.Update.Input,
   ): UsersRepository.Update.Output {
