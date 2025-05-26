@@ -1,4 +1,4 @@
-import { InMemoryBooksRepository } from 'src/infra/database/in-memory/in-memory-books-repository';
+import { InMemoryBooksRepository } from 'src/infra/database/in-memory';
 
 import { BooksRepository } from 'src/application/protocols/database/books-repository';
 import { CreateBookUseCase } from './create-book';
