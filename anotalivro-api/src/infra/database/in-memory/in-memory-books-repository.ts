@@ -34,15 +34,10 @@ export class InMemoryBooksRepository implements BooksRepository {
 
     const book = this.database[index];
 
-    if (!book) {
-      return null
-    }
-    
-    const assignUser = Object.assign(book, input.data);
+    const assignBook = Object.assign(book, input.data);
+    this.database[index] = assignBook;
 
-    this.database[index] = assignUser;
-
-    return assignUser;
+    return assignBook;
   }
 
   async delete(
