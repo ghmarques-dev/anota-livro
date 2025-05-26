@@ -11,6 +11,6 @@ export interface Book {
   current_page: number;
   status: BookStatus;
   notes: Note[];
-  created_at: Date;
   updated_at: Date;
+  created_at: Date;
 }
