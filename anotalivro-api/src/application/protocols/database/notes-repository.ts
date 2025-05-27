@@ -59,15 +59,14 @@ export namespace NotesRepository {
   export namespace Update {
     export type Input = {
       note_id: string;
-      book_id: string;
       data: Partial<{
         title: string;
         content: string;
-        tags: string[];
+        page?: number;
       }>;
     };
 
-    export type Output = Promise<Note | null>;
+    export type Output = Promise<Note>;
   }
 
   export namespace Delete {

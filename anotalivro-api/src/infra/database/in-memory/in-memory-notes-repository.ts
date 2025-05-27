@@ -53,15 +53,10 @@ export class InMemoryNotesRepository implements NotesRepository {
   ): NotesRepository.Update.Output {
     const index = this.database.findIndex(
       (item) =>
-        item.note_id === input.note_id &&
-        item.book_id === input.book_id,
+        item.note_id === input.note_id
     );
 
     const note = this.database[index];
-
-    if (!note) {
-      return null;
-    }
 
     const assignNote = Object.assign(note, input.data, {
       updated_at: new Date(),
