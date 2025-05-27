@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { NotExistsError } from 'src/application/errors/errors';
-import type { BooksRepository } from 'src/application/protocols/database/books-repository';
+import type { BooksRepository } from 'src/application/protocols/database';
 
 import type { Book, BookStatus } from 'src/domain/entities';
 
