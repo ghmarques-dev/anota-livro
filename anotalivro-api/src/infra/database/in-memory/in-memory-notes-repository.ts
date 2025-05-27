@@ -70,10 +70,9 @@ export class InMemoryNotesRepository implements NotesRepository {
   async delete(
     input: NotesRepository.Delete.Input,
   ): NotesRepository.Delete.Output {
-    const index = this.database.findIndex(
+    this.database = this.database.filter(
       (item) =>
-        item.note_id === input.note_id &&
-        item.book_id === input.book_id,
+        !(item.book_id === input.book_id && item.note_id === input.note_id),
     );
   }
 }
